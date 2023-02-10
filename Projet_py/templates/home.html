@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %} Home {% endblock %}
+{% block content %}
+<br> <br>
+    <h1 align="center" style="color: white;">NOUS VOICI SUR LA PAGE D'ACCEUIL </h1>
+    {% if user %}
+    <div class="card"  align="center">
+        <div class="card-header">
+            <h4 class="text-primary">
+                {{user.last_name}} {{user.first_name}}
+            </h4>
+        </div>
+        <div class="card-body" align="center">
+           
+            <h4> Bienvenue, 
+
+            </h4>
+            <h4>
+                Votre mail est :  <label class="text-success"> {{user.email}} </label>
+            </h4>
+        </div>
+        <div class="card-footer" align="center">
+            {% if user.id == 1 %}
+            <h4 class="text-warning">
+                Vous êtes premier utilisateur de la plateforme, Bravo!
+            </h4>
+            {%endif%}
+            {% if user.id >1%}
+            <h4 class="text-warning">
+                Vous êtes le {{user.id}}èm utilisateur
+            </h4>
+            {%endif%}
+        </div>
+    </div>
+    {%endif%}
+{% endblock %}
